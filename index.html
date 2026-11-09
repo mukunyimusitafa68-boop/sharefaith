@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pastor David | Official Ministry Website</title>
+    <link rel="stylesheet" href="notes.html">
+    <style>
+        :root {
+            --primary-color: #1a2530;
+            --accent-color: #c5a059;
+            --light-bg: #f8f9fa;
+            --text-color: #333333;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        /* Header & Navigation */
+        header {
+            background: var(--primary-color);
+            color: #ffffff;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.2rem 5%;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            letter-spacing: 1px;
+            color: var(--accent-color);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+        }
+
+        nav ul li a {
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: var(--accent-color);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(26, 37, 48, 0.8), rgba(26, 37, 48, 0.8)), url('https://images.unsplash.com/photo-1510936111840-65e151ad71bb?auto=format&fit=crop&w=1920&q=80') no-repeat center center/cover;
+            color: #ffffff;
+            text-align: center;
+            padding: 8rem 2rem;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: #ffffff;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto 2rem auto;
+            color: #e2e8f0;
+        }
+
+        .btn {
+            background: var(--accent-color);
+            color: #ffffff;
+            padding: 0.8rem 2rem;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            text-decoration: none;
+            transition: background 0.3s;
+            display: inline-block;
+            text-align: center;
+        }
+
+        .btn:hover {
+            background: #b08d4b;
+        }
+
+        /* Container Sections */
+        section {
+            padding: 5rem 10%;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.2rem;
+            margin-bottom: 3rem;
+            color: var(--primary-color);
+        }
+
+        /* About Section */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-text h3 {
+            color: var(--accent-color);
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .about-text p {
+            margin-bottom: 1.5rem;
+        }
+
+        .about-image img {
+            width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+
+        /* Media / Sermons Section */
+        .media-section {
+            background: var(--light-bg);
+        }
+
+        .media-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .media-card {
+            background: #ffffff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+        }
+
+        .media-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .media-content {
+            padding: 1.5rem;
+        }
+
+        .media-content h4 {
+            margin-bottom: 0.5rem;
+            color: var(--primary-color);
+        }
+
+        .media-content p {
+            font-size: 0.95rem;
+            color: #666;
+            margin-bottom: 1rem;
+        }
+
+        .media-link {
+            color: var(--accent-color);
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        /* Contact Section */
+        .contact-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: var(--light-bg);
+            padding: 3rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        .form-group input, .form-group textarea {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-family: inherit;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            height: 120px;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--primary-color);
+            color: #ffffff;
+            text-align: center;
+            padding: 2rem;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Breakpoints */
+        @media (max-width: 768px) {
+            .about-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            nav ul {
+                display: none; /* Can be expanded with mobile toggle script if needed */
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header & Navigation -->
+    <header>
+        <div class="logo">Pastor David</div>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#sermons">Messages</a></li>
+                <li><a href="#contact">Contact & Prayer</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <h1>VBC GOD'S CHOZEN YOUTHS MINISTRIES-INTERNATIONAL</h1>
+        <p>BE FILLED WITH THE SPIRIT 🫵
+ "For David himself said by the Holy Ghost, The Lord said to my Lord, Sit thou on my right hand, till I make thine enemies thy footstool. Mark 12:36"
+
+God is good, and His goodness will never cease. He sent the Holy Spirit to work with the Old Testament prophets to give direction and training to the Old Testament saints and the nation of Israel at large. In our new dispensation, He has sent the Holy Spirit to take permanent residence on Earth till the second coming of our Lord and Savior Jesus Christ (Acts 2:2-4). Dear beloved, desire to be filled with the Holy Spirit, and ask Him to fill you; if you are born again, you qualify to be filled. Being filled with the Holy Spirit comes with the language of the Spirit, which is tongues and prophesy. The infilling of the  Holy Spirit brings empowerment, which will cause you to receive revelations from God, do righteousness, intercede for other in prayer, preach the gospel, and become immovable for Christ. Hallelujah! Walk in the Spirit!</p>
+        <a href="#sermons" class="btn">Watch Latest Message</a>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <h2 class="section-title">About Pastor David</h2>
+        <div class="about-grid">
+            <div class="about-image">
+                <img src="FB_IMG_17942164138983605.jpg" alt="Pastor David">
+            </div>
+            <div class="about-text">
+                <h3>A Calling to Serve and Lead</h3>
+                <p>Worship is not a song—it is a surrender.
+It is the moment the heart lays down its noise and heaven takes over the atmosphere.
+When true worship rises, burdens lose their power and the presence of God becomes undeniable.
+This is where man decreases and God is revealed in glory.
+“Let everything that has breath praise the Lord."</p>
+                
+                <a href="#contact" class="btn">Get in Touch</a>
+                <a href="https://www.facebook.com/muwanguzi.david.219072" class="btn">visit facebook</a>
+                <a href="https://www.instagram.com/davidmuwanguzi4?rpxt=NXZ1dm11dDg5bjJn" class="btn instagram-btn">visit instagram</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Media / Sermons Section -->
+    <section id="sermons" class="media-section">
+        <h2 class="section-title">Sermons & Media Archive</h2>
+        <p style="text-align: center; max-width: 700px; margin: 0 auto 3rem auto; color: #666;">
+            Access recent video broadcasts and audio teachings. Upload your weekly files using the dedicated ministry hosting platforms outlined below.
+        </p>
+        <div class="media-grid">
+            <!-- Video Card Example -->
+            <div class="media-card">
+                <div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;">
+                    <!-- Placeholder embed iframe for YouTube/Vimeo -->
+                    <iframe style="position:absolute;top:0;left:0;width:100%;height:100%;border:0;" src="Muwanguzi_....mp4" title="Latest Video Sermon" allowfullscreen></iframe>
+                </div>
+                <div class="media-content">
+                    <h4>Walking in Divine Purpose</h4>
+                    <p>In a generation where many speak about God but few truly live for Him, spiritual integrity demands that our private life matches our public confession. It is the courage to stand for truth when compromise is easier, the discipline to remain holy when no one is watching.</p>
+                   
+                </div>
+            </div>
+
+            <!-- Audio Card Example -->
+            <div class="media-card">
+                <div style="background: var(--primary-color); height: 180px; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold;">
+                    🎧 Audio Podcast Player
+                </div>
+                <div class="media-content">
+                    <h4>Midweek Prayer & Breakthrough</h4>
+                    <p>Listen to the full audio teaching or podcast broadcast.</p>
+                    
+                </div>
+            </div>
+
+            <!-- Livestream / Extra Resource -->
+            <div class="media-card">
+                <div style="background: #2c3e50; height: 180px; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold;">
+                    📖 Ministry Library
+                </div>
+                <div class="media-content">
+                    <h4>Sermon Notes & Outlines</h4>
+                    <p>Download PDF study guides and weekly scripture notes.</p>
+                    <a href="notes.html" target="_blank" class="media-link">Read quotes &rarr;</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact & Prayer Section -->
+    <section id="contact">
+        <h2 class="section-title">Prayer Requests & Contact</h2>
+        <div class="contact-container">
+            <form action="#" method="POST">
+                <div class="form-group">
+                    <label for="name">Your Name</label>
+                    <input type="text" id="name" name="name" required placeholder="Enter your full name">
+                </div>
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="email" required placeholder="Enter your email">
+                </div>
+                <div class="form-group">
+                    <label for="message">Prayer Request or Message</label>
+                    <textarea id="message" name="message" required placeholder="How can Pastor David pray for you or assist your family?"></textarea>
+                </div>
+                <button type="submit" class="btn" style="width: 100%;">Submit Request</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Pastor David Ministries (pastor-david.com). All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>s
